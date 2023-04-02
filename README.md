@@ -1,8 +1,6 @@
 # Aplikasi Web Manajemen Keuangan Makan Mahasiswa
 
-Analisis dan Desain Sistem
-Kelompok 1
-P3
+Kelompok 1 Analisis dan Desain Sistem P3
 
 ### Anggota dan Role:
 |  | Nama  | NIM | Role |
