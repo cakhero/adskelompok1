@@ -1,4 +1,4 @@
-# Aplikasi Web Manajemen Keuangan Makan Mahasiswa
+# Food Cost Recommendation System (FOCORECS)
 
 Kelompok 1 Analisis dan Desain Sistem P3
 
