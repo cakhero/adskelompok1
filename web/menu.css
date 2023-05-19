@@ -1,0 +1,247 @@
+@import url('https://font.googleleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.navbar {
+    background-color: #74B49B;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.btn-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.btn-link:hover {
+    background-color: white;
+    color: #74B49B;
+}
+.btn-primary {
+    background-color: #74B49B;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: white;
+    color: #74B49B;
+}
+
+.navbar {
+    font-family: 'Poppins', sans-serif;
+}
+
+.home {
+    background-color: #F4F9F4;
+}
+
+.home-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    size: cover;
+}
+
+.text-container {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 40%;
+    color: white;
+    padding: 10px;
+    padding-left: 100px;
+}
+
+.text-container h4 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.base {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+    padding: 10px;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.img-container img {
+    max-width: 85%;
+    height: auto;
+    padding-left: 100px;
+}
+
+.text-box-container {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 70px;
+}
+
+.text-box-container p {
+    margin-top: 19px;
+    font-weight: bold;
+    color: #74B49B;
+}
+
+.input-label {
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    font-weight: 600;
+    color: #74B49B;
+}
+
+.text-box input {
+    border: none;
+    border-bottom: 2px solid #74B49B;
+    padding: 5px;
+    outline: none;
+    width: 100%;
+}
+
+.choices {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+}
+
+.choices label {
+    margin: 0 20px;
+    color: #74B49B;
+}
+
+.confirm {
+    padding-top: 25px;
+}
+
+.confirm-butt {
+    width: 272px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 4px;
+    background: #74B49B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+.content-text {
+    font-family: 'Poppins', sans-serif;
+    color: #74B49B;
+    font-weight: bold;
+    padding: 10px;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+
+.rating{
+    position: relative;
+    display: flex;
+    margin: 10px 0;
+    padding-top: 10px;
+}
+
+.rating input {
+    position: relative;
+    width: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    appearance: none;
+    overflow: hidden;
+}
+
+.rating input::before {
+    content: '\f005';
+    position: absolute;
+    font-family: fontAwesome;
+    font-size: 34px;
+    position: absolute;
+    left: 4px;
+    color: #E0E0E0;
+    transition: 0.5s;
+}
+
+.rating input:nth-child(2n)::before {
+    right: 4px;
+    left: initial;
+}
+
+.rating input:hover ~ input::before,
+.rating input:hover::before,
+.rating input:checked ~ input::before,
+.rating input:checked::before
+{
+    color: #74B49B;
+}
+
+.slider-content{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    display: flex;
+    color: #74B49B;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.slide:hover {
+    background-color: #4a977a;
+    color: #F4F9F4;
+}
+
+.slider {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr); /* Mengatur 3 kolom grid */
+    padding: 10px;
+}
+  
+.slide {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #F4F9F4;
+    padding: 10px;
+    color: #74B49B;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+  
+.slide img {
+    width: 375px;
+    height: 266px;
+}
+
+.judul-makanan {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
