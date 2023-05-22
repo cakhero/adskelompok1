@@ -2,6 +2,10 @@
 
 .navbar {
     background-color: #74B49B;
+    position: relative;
+    z-index: 2;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav-link {
@@ -20,20 +24,186 @@
     background-color: white;
     color: #74B49B;
 }
-.btn-primary {
+.btn-primary { /*login*/
     background-color: #74B49B;
     color: white;
     font-weight: bold;
     border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 .btn-primary:hover {
     background-color: white;
     color: #74B49B;
 }
 
-.navbar {
-    font-family: 'Poppins', sans-serif;
+.popup {
+    display: none;
+    position: absolute;
+    top: 650%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 550px;
+    padding: 20px 50px;
+    padding-top: 30px;
+    background: white;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    z-index: 9999;
 }
+.popup .active {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-signin{
+    top: 50%;
+    left: 50%;
+}
+
+.popup .close-btn { /*tombol close*/
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: #4a977a;
+    color: #F4F9F4;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.popup .form {
+    padding-left: 60px;
+}
+.popup .form h2 {
+    float: left;
+    text-align: center;
+    color: #062925;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.popup .form p {
+    font-size: 12px;
+}
+
+.popup .form .form-element {
+    margin: 15px 0px;
+}
+.popup .form .form-element label {
+    color: #062925;
+    font-size: 14px;
+}
+
+.masuk-popup button {
+    margin: 15px 0px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #F4F9F4;
+    color: #4a977a;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.masuk-popup button:hover {
+    background-color: #4a977a;
+    color: #F4F9F4;
+}
+
+.showpassword {
+    float: left;
+    padding: 17px;
+    margin-left: -15px;
+    color: #062925;
+}
+
+.content-masuk {
+    float: center;
+    padding: 20px 35px;
+    margin-top: -25px;
+}
+.content-masuk .content-text {
+    font-weight: 300;
+}
+.content-masuk .masuk-butt {
+    text-decoration: none;
+    color: #062925;
+    font-weight: bold;
+}
+
+.popup .form .form-element input[type="text"],
+.popup .form .form-element input[type="password"] {
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border:  1px solid #4a977a;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+.popup .form .form-element button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: #E0E0E0;
+    color: #4a977a;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.popup .form .form-element a {
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.menu-item {
+    position: relative;
+}
+.menu-item ul{
+    list-style: none;
+    margin-top: 12px;
+}
+  
+.dropdown-menu {
+    display: none;
+    background-color: #74B49B;
+    position: absolute;
+    border: none;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    top: 80%;
+    left: -70%;
+    width: 220px;
+    z-index: 1;
+}
+.dropdown-menu li{
+    padding: 8px 8px;
+}
+.dropdown-menu img {
+    margin-right: 10px;
+}
+.dropdown-menu a {
+    text-decoration: none;
+    color: #F4F9F4;
+}
+.dropdown-menu li:hover{
+    background-color: #4a977a;
+}
+.menu-item:hover .dropdown-menu {
+    display: block;
+} 
+
 
 .home {
     background-color: #F4F9F4;
@@ -245,3 +415,18 @@
     font-weight: bold;
 }
 
+/* Perubahan tampilan pada lebar layar <= 768px */
+@media (max-width: 768px) {
+    /* Aturan CSS khusus untuk tampilan pada layar kecil */
+}
+  
+/* Perubahan tampilan pada lebar layar <= 992px */
+@media (max-width: 992px) {
+    /* Aturan CSS khusus untuk tampilan pada layar menengah */
+}
+  
+/* Perubahan tampilan pada lebar layar > 992px */
+@media (min-width: 992px) {
+    /* Aturan CSS khusus untuk tampilan pada layar besar */
+}
+  

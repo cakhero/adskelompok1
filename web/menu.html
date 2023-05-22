@@ -51,16 +51,121 @@
           </li>
         </ul>
         <!-- Left links -->
-  
+        
         <div class="d-flex align-items-center">
-          <button type="button" class="btn btn-link px-3 me-2">
-            Buat Akun
-          </button>
-          <button type="button" class="btn btn-primary me-3">
-            Masuk
-          </button>
+          <a href="#" class="btn btn-link px-3 me-2" id="buatakun">Buat Akun</a>
+          <a href="#" class="btn btn-primary me-3" id="masuk">Masuk</a>
         </div>
-      </div>
+
+        <!--Popup login-->
+        <div class="popup" id="popup-login">
+          <div class="popup-login">
+          <a href="#" class="close-btn">&times;</a>
+          <div class="form">
+            <h2>Selamat datang kembali</h2>
+            <p>Silahkan masukan email dan password anda</p>
+            <div class="form-element">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="Enter Email">
+            </div>
+            <div class="form-element">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Enter Password">
+              <a href="#" id="showPasswordButton" class="showpassword">Show Password</a>
+
+              <script>
+                const passwordInput = document.getElementById("password");
+                const showPasswordButton = document.getElementById("showPasswordButton");
+
+                showPasswordButton.addEventListener("click", function() {
+                  if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    showPasswordButton.textContent = "Hide Password";
+                  } 
+                  else {
+                    passwordInput.type = "password";
+                    showPasswordButton.textContent = "Show Password";
+                  }
+                });
+              </script>
+
+            </div>
+            <div class="form-element">
+              <a href="#">Lupa Password?</a>
+            </div>
+            <div class="masuk-popup">
+              <button onclick="window.location.href='landing.html'">Masuk</button>
+            </div>
+            <div class="content-masuk">
+              <p class="content-text">Belum punya akun? <a href="#" class="masuk-butt">Daftar</a></p>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Popup Signin -->
+        <div class="popup" id="popup-signin">
+          <div class="popup-signin">
+          <a href="#" class="close-btn">&times;</a>
+          <div class="form">
+            <h2>Buat akunmu sekarang!</h2>
+            <div class="form-element">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="Enter Email">
+            </div>
+            <div class="form-element">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Enter Password">
+            <div class="form-element">  
+              <label for="password">Konfirmasi Password</label>
+              <input type="password" id="password" placeholder="Konfirmasi Password">
+              <a href="#" id="showPasswordInput" class="showpassword">Show Password</a>
+            </div>
+              <script>
+                const checkpasswordInput = document.getElementById("password");
+                const showPasswordInput = document.getElementById("showPasswordInput");
+
+                showPasswordInput.addEventListener("click", function() {
+                  if (checkpasswordInput.type === "password") {
+                    checkpasswordInput.type = "text";
+                    showPasswordInput.textContent = "Hide Password";
+                    showPasswordInput  } 
+                  else {
+                    checkpasswordInput.type = "password";
+                    showPasswordInput.textContent = "Show Password";
+                  }
+                });
+              </script>
+
+            </div>
+            <div class="masuk-popup">
+              <button onclick="window.location.href='landing.html'">Masuk</button>
+            </div>
+            <div class="content-masuk">
+              <p class="content-text">Sudah punya akun? <a href="#" class="masuk-butt">Masuk</a></p>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+        <script>
+          document.getElementById("buatakun").addEventListener("click", function() {
+            document.querySelector("#popup-signin").style.display = "flex";
+          });
+        
+          document.getElementById("masuk").addEventListener("click", function() {
+            document.querySelector("#popup-login").style.display = "flex";
+          });
+        
+          document.querySelectorAll(".close-btn").forEach(function(closeButton) {
+            closeButton.addEventListener("click", function() {
+              document.querySelectorAll(".popup").forEach(function(popup) {
+                popup.style.display = "none";
+              });
+            });
+          });
+        </script>
+
       <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
