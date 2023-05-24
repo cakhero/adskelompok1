@@ -3,20 +3,19 @@ from pydantic import BaseModel
 class CreateUser(BaseModel):
     username: str
     password: str
-    reportBug : str
+    report_bug : str
 
 class ClassMahasiswa(BaseModel):
-    nominalDana: int
-    durasiHari: int
-    nilaiWarung: int
-
+    nominal_dana: int
+    durasi_hari: int
+    nilai_warung: int
 
 class ClassPemberiRekomendasi(BaseModel):
-    namaWarung: str
-    lokasiWarung: str
-    jamBukaWarung: str
-    kontakWarung: int
-    namaMakanan: str
-    hargaMakanan: int
-    namaMinuman: str
-    hargaMinuman: int
+    nama_warung: str
+    lokasi_warung: str
+    jam_buka_warung: str
+    kontak_warung: int
+    nama_makanan: str
+    harga_makanan: int
+    nama_minuman: str
+    harga_minuman: int

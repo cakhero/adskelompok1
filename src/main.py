@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Depends
-from .schemas import CreateUser
+from schemas import CreateUser
 from sqlalchemy.orm import Session
-from .database import get_db
-from .models import User
+from database import get_db
+from models import User
 
 app = FastAPI()
 
@@ -11,7 +11,7 @@ def create(details: CreateUser, db : Session = Depends(get_db)):
         to_create = User(
             username=details.username,
             password=details.password,
-            reportBug=details.reportBug
+            report_bug=details.report_bug
         )
         db.add(to_create)
         db.commit()

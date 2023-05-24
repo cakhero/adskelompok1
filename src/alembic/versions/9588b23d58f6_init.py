@@ -22,7 +22,7 @@ def upgrade() -> None:
         sa.Column('UserID', sa.Integer, primary_key=True),
         sa.Column('username', sa.String, nullable=False),
         sa.Column('password', sa.String, nullable=False),
-        sa.Column('reportBug', sa.Text, nullable=True)
+        sa.Column('report_bug', sa.Text, nullable=True)
     )
     op.create_table(
         'pemberi_rekomendasi',
@@ -47,7 +47,7 @@ def upgrade() -> None:
     )
     
 
-
-
 def downgrade() -> None:
-    op.drop_table('ClassUser')
+    op.drop_table('user')
+    op.drop_table('pemberi_rekomendasi')
+    op.drop_table('mahasiswa')
