@@ -3,7 +3,6 @@ from pydantic import BaseModel
 class CreateUser(BaseModel):
     username: str
     password: str
-    report_bug : str
 
 class ClassMahasiswa(BaseModel):
     nominal_dana: int
@@ -19,3 +18,7 @@ class ClassPemberiRekomendasi(BaseModel):
     harga_makanan: int
     nama_minuman: str
     harga_minuman: int
+    
+class AuthDetails(BaseModel):
+    username: str
+    password: str
