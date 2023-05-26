@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Focorecs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2" href="https://mdbgo.com/">
+        <img
+          src="asset/Ellipse 1.png"
+          height="30"
+          alt="logo"
+          loading="lazy"
+          style="margin-top: -1px;"
+        />
+      </a>
+  
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarButtonsExample"
+        aria-controls="navbarButtonsExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Focorecs</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+  
+        <div class="menu-item">
+        <!--<div class="d-flex align-items-center">-->
+          <ul>
+            <li><a href="#"><img src="asset/Vector.png" alt="more"></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><img src="asset/Vector.png" alt="">Nama User</a></li>
+                <li id="gantipass"><a href="password.html"><img src="asset/change_pass.png">Ubah kata sandi</a></li>
+                <li id="laporbug"><a href="report.html"><img src="asset/ic_sharp-report-gmailerrorred.png">Laporkan Kendala</a></li>
+                <li><a href="menu.html"><img src="asset/ic_sharp-log-out.png" alt="">Keluar</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            var dropdownToggle = document.querySelectorAll(".menu-item > ul > li > a");
+
+            for (var i = 0; i < dropdownToggle.length; i++) {
+              dropdownToggle[i].addEventListener("click", function(e) {
+                e.preventDefault();
+                this.parentNode.querySelector(".dropdown-menu").classList.toggle("active");
+              });
+            }
+          });
+        </script>
+      </div>
+
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+  <div class="home">
+    <div class="confirm-pay">
+        <h1 class="text-tittle">Saldo yang ditambahkan</h1>
+        <div class="confirm-section">
+            <input type="text" class="confirm-price" placeholder="Rp    200.000">
+            <input type="text" class="confirm-day" placeholder="1 Minggu"> 
+        </div>
+    </div>
+    <div class="limit-pay">
+        <h1 class="text-tittle">Limit harian</h1>
+        <div class="limit-section">
+            <input type="text" class="limit-price" placeholder="Rp    20.000"> 
+        </div>
+    </div>
+    <div class="back-butt">
+      <button onclick="window.location.href='landing.html'" type="button" class="back-button">Membuat estimasi lainnya</button>
+    </div>
+  </div>
+
+  <h2 class="text-mid">Kamu harus coba!</h2>
+
+  <div class="slider-content">
+    <div class="slider">
+        <a href="#" class="slide">
+            <img src="asset/Frame 2874.png" alt="Gambar1">
+            <div class="rating">
+              <input type="radio" name="rating" id="rating1">
+              <input type="radio" name="rating" id="rating2">
+              <input type="radio" name="rating" id="rating3">
+              <input type="radio" name="rating" id="rating4">
+              <input type="radio" name="rating" id="rating5">
+              <input type="radio" name="rating" id="rating6">
+              <input type="radio" name="rating" id="rating7">
+              <input type="radio" name="rating" id="rating8">
+              <input type="radio" name="rating" id="rating9">
+              <input type="radio" name="rating" id="rating10">
+            </div>
+            <h4 class="judul-makanan">Donat</h4>
+            <p class="harga">Rp 5.000</p>
+        </a>
+    </div>
+    <div class="slider">
+        <a href="#" class="slide">
+          <img src="asset/Frame 2874.png" alt="Gambar1">
+          <div class="rating">
+            <input type="radio" name="rating" id="rating1">
+            <input type="radio" name="rating" id="rating2">
+            <input type="radio" name="rating" id="rating3">
+            <input type="radio" name="rating" id="rating4">
+            <input type="radio" name="rating" id="rating5">
+            <input type="radio" name="rating" id="rating6">
+            <input type="radio" name="rating" id="rating7">
+            <input type="radio" name="rating" id="rating8">
+            <input type="radio" name="rating" id="rating9">
+            <input type="radio" name="rating" id="rating10">
+          </div>
+          <h4 class="judul-makanan">Donat</h4>
+          <p class="harga">Rp 5.000</p>
+        </a>
+    </div>
+    <div class="slider">
+        <a href="#" class="slide">
+          <img src="asset/Frame 2874.png" alt="Gambar1">
+          <div class="rating">
+            <input type="radio" name="rating" id="rating1">
+            <input type="radio" name="rating" id="rating2">
+            <input type="radio" name="rating" id="rating3">
+            <input type="radio" name="rating" id="rating4">
+            <input type="radio" name="rating" id="rating5">
+            <input type="radio" name="rating" id="rating6">
+            <input type="radio" name="rating" id="rating7">
+            <input type="radio" name="rating" id="rating8">
+            <input type="radio" name="rating" id="rating9">
+            <input type="radio" name="rating" id="rating10">
+          </div>
+          <h4 class="judul-makanan">Donat</h4>
+          <p class="harga">Rp 5.000</p>
+        </a>
+    </div>
+  </div>
+  <div class="slider-content">
+    <div class="slider">
+        <a href="#" class="slide">
+            <img src="asset/Frame 2874.png" alt="Gambar1">
+            <div class="rating">
+              <input type="radio" name="rating" id="rating1">
+              <input type="radio" name="rating" id="rating2">
+              <input type="radio" name="rating" id="rating3">
+              <input type="radio" name="rating" id="rating4">
+              <input type="radio" name="rating" id="rating5">
+              <input type="radio" name="rating" id="rating6">
+              <input type="radio" name="rating" id="rating7">
+              <input type="radio" name="rating" id="rating8">
+              <input type="radio" name="rating" id="rating9">
+              <input type="radio" name="rating" id="rating10">
+            </div>
+            <h4 class="judul-makanan">Donat</h4>
+            <p class="harga">Rp 5.000</p>
+        </a>
+    </div>
+    <div class="slider">
+        <a href="#" class="slide">
+          <img src="asset/Frame 2874.png" alt="Gambar1">
+          <div class="rating">
+            <input type="radio" name="rating" id="rating1">
+            <input type="radio" name="rating" id="rating2">
+            <input type="radio" name="rating" id="rating3">
+            <input type="radio" name="rating" id="rating4">
+            <input type="radio" name="rating" id="rating5">
+            <input type="radio" name="rating" id="rating6">
+            <input type="radio" name="rating" id="rating7">
+            <input type="radio" name="rating" id="rating8">
+            <input type="radio" name="rating" id="rating9">
+            <input type="radio" name="rating" id="rating10">
+          </div>
+          <h4 class="judul-makanan">Donat</h4>
+          <p class="harga">Rp 5.000</p>
+        </a>
+    </div>
+    <div class="slider">
+        <a href="#" class="slide">
+          <img src="asset/Frame 2874.png" alt="Gambar1">
+          <div class="rating">
+            <input type="radio" name="rating" id="rating1">
+            <input type="radio" name="rating" id="rating2">
+            <input type="radio" name="rating" id="rating3">
+            <input type="radio" name="rating" id="rating4">
+            <input type="radio" name="rating" id="rating5">
+            <input type="radio" name="rating" id="rating6">
+            <input type="radio" name="rating" id="rating7">
+            <input type="radio" name="rating" id="rating8">
+            <input type="radio" name="rating" id="rating9">
+            <input type="radio" name="rating" id="rating10">
+          </div>
+          <h4 class="judul-makanan">Donat</h4>
+          <p class="harga">Rp 5.000</p>
+        </a>
+    </div>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>
