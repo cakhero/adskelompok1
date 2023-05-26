@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+@import url('https://font.googleleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.forget-password {
+    display: flex;
+    top: 12%;
+    left: 25%;
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    padding: 30px 50px;
+    background: #F4F9F4;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.forget-password .form {
+    padding-left: 30px;
+    padding-top: 40px;
+}
+.forget-password .form h2 {
+    text-align: left;
+    padding-bottom: 10px;
+    color: #062925;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.masuk.forget-password button {
+    margin: 15px 0px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #F4F9F4;
+    color: #4a977a;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.masuk.forget-password button:hover {
+    background-color: #4a977a;
+    color: #F4F9F4;
+}
+
+.form-element textarea {
+    resize: none;
+    margin-top: 20px;
+    display: block;
+    width: 540px;
+    height: 200px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #dddd;
+    border-radius: 10px;
+}
+
+.change-pass {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.change-pass button{
+    width: 150px;
+    height: 38px;
+    margin: 0 5px;
+    border: none;
+    color: white;
+    background-color: #74b49b;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.change-pass button:hover {
+    background-color: #E0E0E0;
+    color: #74b49b;
+}
+
+.change-pass button:first-child {
+    margin-left: 55px;
+}
