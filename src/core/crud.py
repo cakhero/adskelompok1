@@ -10,18 +10,14 @@ class Crud():
         user = models.User(username=new_user.username, password=hashed_password)
         db.add(user)
         db.commit()
+        db.refresh(user)
 
     def get_user(self, db: session, username: str):
         user = db.query(models.User).filter(models.User.username == username).first()
         return user
     
-    
     def login_user(self, db: session, username: str, password: str):
         user = self.get_user(db, username)
-        # print(user)
-        # print(user.password)
-        # print(auth_handler.get_password_hash(password))
-        # print(auth_handler.verify_password(user.password, auth_handler.get_password_hash(password)))
         if (user is None) or (not auth_handler.verify_password(password, user.password)):
             raise HTTPException(status_code=401, detail='Invalid username and/or password')
         token = auth_handler.encode_token(user.username)
@@ -30,5 +26,26 @@ class Crud():
     def verify_user(self, token: str):
         user = auth_handler.decode_token(token)
         return user
+    
+    def change_password(self, db: session, token: str, old_password: str, new_password: str):
+        user = self.verify_user(token)
+        user = self.get_user(db, user)
+        if auth_handler.verify_password(old_password, user.password):
+            new_password = auth_handler.get_password_hash(new_password)
+            user.password = new_password
+            db.commit()
+            db.refresh(user)
+            return True
+        return False 
+    
+    def save_report(self, db: session, token: str, report: str):
+        user = self.verify_user(token)
+        user = self.get_user(db, user)
+        user.report_bug = report
+        db.commit()
+        db.refresh(user)
+        return True
+        
+        
     
 crud = Crud()

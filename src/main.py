@@ -22,6 +22,7 @@ def index(request: Request):
     if token == None:
         return templates.TemplateResponse("menu.html", context)
     if crud.verify_user(token):
+        context['username'] = crud.verify_user(token)
         return templates.TemplateResponse("landing.html", context)
     return templates.TemplateResponse("menu.html", context)
 
@@ -37,6 +38,7 @@ async def register(request: Request, db: Session = Depends(get_db)):
         return
     new_user = CreateUser(username=username, password=password)
     crud.create_user(db, new_user)
+    context['username'] = username
     return templates.TemplateResponse("landing.html", context)
 
 @app.post("/login")
@@ -56,6 +58,44 @@ async def logout(request: Request):
     response = RedirectResponse("/", status_code=status.HTTP_302_FOUND)
     response.delete_cookie("token")
     return response
+
+@app.get("/reset")
+async def reset(request: Request):
+    context = {"request": request}
+    return templates.TemplateResponse("password.html", context)
+
+@app.post("/reset")
+async def reset(request: Request, db: Session = Depends(get_db)):
+    context = {"request": request}
+    token = request.cookies.get("token")
+    if token == None:
+        return templates.TemplateResponse("menu.html", context)
+    form = await request.form()
+    old_password = form.get("old_password")
+    new_password = form.get("new_password")
+    status = crud.change_password(db, token, old_password, new_password)
+    print(status)
+    if status:
+        context['username'] = crud.verify_user(token)
+        return templates.TemplateResponse("landing.html", context)
+    return templates.TemplateResponse("password.html", context)
+
+@app.get("/report")
+async def report(request: Request):
+    context = {"request": request}
+    return templates.TemplateResponse("report.html", context)
+
+@app.post("/report")
+async def report(request: Request, db: Session = Depends(get_db)):
+    context = {"request": request}
+    token = request.cookies.get("token")
+    form = await request.form()
+    report = form.get("report")
+    if token == None or report == None:
+        return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
+    report = crud.save_report(db, token, report)
+    return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
+    
 
 # if __name__ == "__main__":
 #     import uvicorn
