@@ -103,26 +103,27 @@ async def report(request: Request, db: Session = Depends(get_db)):
     return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
 
 @app.get("/order")
-async def order(request: Request):
+async def order(request: Request, db: Session = Depends(get_db)):
     context = {"request": request}
     token = request.cookies.get('token')
     context['username'] = crud.verify_user(token)
+    uang, hari = crud.get_uang(db, token)
+    context['uang'] = uang
+    context['hari'] = hari
     return templates.TemplateResponse("order.html", context)
 
 @app.post("/order")
 async def order(request: Request, db: Session = Depends(get_db)):
     context = {"request": request}
     token = request.cookies.get("token")
-    if token == None:
-        return templates.TemplateResponse("menu.html", context)
     form = await request.form()
     hari = int(form.get("choices"))
     uang = int(form.get("uang"))
-    status = crud.save_uang(db, token, uang, hari)
+    if token != None:
+        status = crud.save_uang(db, token, uang, hari)
     context['uang'] = uang
     context['hari'] = hari
-    if status:
-        return templates.TemplateResponse("order.html", context)
+    return templates.TemplateResponse("order.html", context)
     
 @app.get("/menu")
 async def menu(request: Request):

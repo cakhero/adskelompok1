@@ -91,8 +91,8 @@
   <div class="home">
     <img class="home-img" src="/static/asset/Group 2023.png" alt="">
     <div class="text-container">
-      <h4>Lorem, ipsum dolor.</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      <h4>Selamat datang {{username}}</h4>
+      <p>Silahkan menjelajahi website kami</p>
     
     <!--Grid Kiri-->
     </div>
@@ -104,9 +104,9 @@
         </div>
     
     <!--Grid Kanan-->
-        <form class="form" action="/order" method="post">
           <div class="item"> 
             <div class="text-box-container">
+              <form class="form" action="/order" method="post">
               <h4 class="input-label">Masukan duid</h4>
               <div class="text-box">
                 <input type="text" name="uang" id="">
@@ -126,12 +126,13 @@
                   1 Bulan
                 </label>
               </div>
-              <div class="confirm">
+              <div class="confirm btn-group">
                 <button type="submit" class="confirm-butt">Simpan</button>
+                <button onclick="window.location.href='/order'" type="button" class="confirm-butt">Riwayat</button>
               </div>
+            </form>
             </div>
           </div>
-        </form>
       </div>
     </div>
 

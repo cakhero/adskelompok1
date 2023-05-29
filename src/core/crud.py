@@ -59,6 +59,11 @@ class Crud():
         db.commit()
         db.refresh(user)
         return True
+    
+    def get_uang(self, db: session, token : str):
+        user = self.verify_user(token)
+        user = self.get_mahasiswa(db, user)
+        return user.nominal_dana, user.durasi_hari
         
         
     

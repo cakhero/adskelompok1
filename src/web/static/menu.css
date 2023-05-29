@@ -298,6 +298,8 @@
 
 .confirm {
     padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .confirm-butt {
@@ -314,9 +316,9 @@
     border-radius: 4px;
     font-weight: bold;
     color: white;
+    flex-grow: 1;
+    margin-right: 10px;
 }
-
-
 
 .content-text {
     font-family: 'Poppins', sans-serif;

@@ -91,18 +91,18 @@
     <div class="confirm-pay">
         <h1 class="text-tittle">Saldo yang ditambahkan</h1>
         <div class="confirm-section">
-            <input type="text" class="confirm-price" value="Rp{{uang}}">
+          <input type="text" class="confirm-price" value="Rp{{ '{:,.0f}'.format(uang)|replace(',', '.') }}">
             <input type="text" class="confirm-day" value="{{hari}} hari"> 
         </div>
     </div>
     <div class="limit-pay">
         <h1 class="text-tittle">Limit harian</h1>
         <div class="limit-section">
-            <input type="text" class="limit-price" value="{{'Rp%.2f'|format(uang/hari)}} per hari"> 
+          <input type="text" class="limit-price" value="Rp{{ '{:,.0f}'.format(uang/hari)|replace(',', '.') }} per hari">
         </div>
     </div>
     <div class="back-butt">
-      <button onclick="window.location.href='landing.html'" type="button" class="back-button">Membuat estimasi lainnya</button>
+      <button onclick="window.location.href='/'" type="button" class="back-button">Membuat estimasi lainnya</button>
     </div>
   </div>
 
