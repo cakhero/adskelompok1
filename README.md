@@ -38,14 +38,21 @@ Alasan mengapa dipilih MVC sebagai Architecture Pattern yang digunakan adalah ka
 
 ## Research Plan
 ### Empathy Map
+![Playground Empathy Map](https://github.com/cakhero/adskelompok1/assets/93716487/21172025-2230-4ed2-9576-a688b429a884)
 ### Customer Journey
+![Playground Persona](https://github.com/cakhero/adskelompok1/assets/93716487/886b201b-2111-4c3c-aeca-a69eb0b1c644)
 ### User Persona
+![Playground Persona (1)](https://github.com/cakhero/adskelompok1/assets/93716487/97914a09-c1de-4932-8a13-060567bf2f73)
 
 ## System Analysis
 ### Use Case Diagram
+![use case](https://github.com/cakhero/adskelompok1/assets/93716487/8a5fbf15-82b1-4b30-8d29-9a8fe3884a6f)
 ### Activity Diagram
+![activity diagram](https://github.com/cakhero/adskelompok1/assets/93716487/e5b30b4e-009b-4bca-bbc7-ae4264bc8a44)
 ### ERD
+
 ### Class Diagram
+![class diagram](https://github.com/cakhero/adskelompok1/assets/93716487/0c1c7559-6013-4805-89ea-37e259a83f87)
 
 ## Prototype
 
