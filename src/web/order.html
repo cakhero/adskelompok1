@@ -59,10 +59,10 @@
           <ul>
             <li><a href="#"><img src="/static/asset/Vector.png" alt="more"></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><img src="/static/asset/Vector.png" alt="">Nama User</a></li>
-                <li id="gantipass"><a href="#"><img src="/static/asset/change_pass.png">Ubah kata sandi</a></li>
-                <li id="laporbug"><a href="#"><img src="/static/asset/ic_sharp-report-gmailerrorred.png">Laporkan Kendala</a></li>
-                <li><a href="menu.html"><img src="/static/asset/ic_sharp-log-out.png" alt="">Keluar</a></li>
+                <li><a href="#"><img src="/static/asset/Vector.png" alt="">{{username}}</a></li>
+                <li id="gantipass"><a href="/reset"><img src="/static/asset/change_pass.png">Ubah kata sandi</a></li>
+                <li id="laporbug"><a href="/report"><img src="/static/asset/ic_sharp-report-gmailerrorred.png">Laporkan Kendala</a></li>
+                <li><a href="/logout"><img src="/static/asset/ic_sharp-log-out.png" alt="">Keluar</a></li>
               </ul>
             </li>
           </ul>
@@ -91,14 +91,14 @@
     <div class="confirm-pay">
         <h1 class="text-tittle">Saldo yang ditambahkan</h1>
         <div class="confirm-section">
-            <input type="text" class="confirm-price" placeholder="Rp 200.000">
-            <input type="text" class="confirm-day" placeholder="1 Minggu"> 
+            <input type="text" class="confirm-price" value="Rp{{uang}}">
+            <input type="text" class="confirm-day" value="{{hari}} hari"> 
         </div>
     </div>
     <div class="limit-pay">
         <h1 class="text-tittle">Limit harian</h1>
         <div class="limit-section">
-            <input type="text" class="limit-price" placeholder="Rp 20.000"> 
+            <input type="text" class="limit-price" value="{{'Rp%.2f'|format(uang/hari)}} per hari"> 
         </div>
     </div>
     <div class="back-butt">

@@ -36,10 +36,16 @@ async def register(request: Request, db: Session = Depends(get_db)):
     if password != cpassword:
         raise HTTPException(status_code=400, detail="Passwords do not match")
         return
+    if username == None:
+        raise HTTPException(status_code=404, detail="Username Cannot Empty")
+        return
     new_user = CreateUser(username=username, password=password)
+    print(username, password)
     crud.create_user(db, new_user)
-    context['username'] = username
-    return templates.TemplateResponse("landing.html", context)
+    token = crud.login_user(db, username, password)
+    response = RedirectResponse("/", status_code=status.HTTP_302_FOUND)
+    response.set_cookie("token", token["token"], max_age=24 * 60 * 60)
+    return response
 
 @app.post("/login")
 async def login(request: Request, db: Session = Depends(get_db)):
@@ -95,7 +101,36 @@ async def report(request: Request, db: Session = Depends(get_db)):
         return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
     report = crud.save_report(db, token, report)
     return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
+
+@app.get("/order")
+async def order(request: Request):
+    context = {"request": request}
+    token = request.cookies.get('token')
+    context['username'] = crud.verify_user(token)
+    return templates.TemplateResponse("order.html", context)
+
+@app.post("/order")
+async def order(request: Request, db: Session = Depends(get_db)):
+    context = {"request": request}
+    token = request.cookies.get("token")
+    if token == None:
+        return templates.TemplateResponse("menu.html", context)
+    form = await request.form()
+    hari = int(form.get("choices"))
+    uang = int(form.get("uang"))
+    status = crud.save_uang(db, token, uang, hari)
+    context['uang'] = uang
+    context['hari'] = hari
+    if status:
+        return templates.TemplateResponse("order.html", context)
     
+@app.get("/menu")
+async def menu(request: Request):
+    context = {"request": request}
+    token = request.cookies.get('token')
+    context['username'] = crud.verify_user(token)
+    return templates.TemplateResponse("detailmenu1.html", context)
+
 
 # if __name__ == "__main__":
 #     import uvicorn
