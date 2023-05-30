@@ -1,0 +1,143 @@
+@import url('https://font.googleleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.navbar {
+    background-color: #74B49B;
+    position: relative;
+    z-index: 2;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.btn-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.btn-link:hover {
+    background-color: white;
+    color: #74B49B;
+}
+.btn-primary { /*login*/
+    background-color: #74B49B;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn-primary:hover {
+    background-color: white;
+    color: #74B49B;
+}
+
+.add-item {
+    justify-content: center;
+    align-items: center;
+    background-color: #74B49B;
+}
+.additem {
+    display: flex;
+    text-align: center;
+}
+.additem a {
+    padding-right: 30px;
+    text-decoration: none;
+    color: #F4F9F4;
+}
+
+.additem:hover,
+.additem a:hover{
+    background-color: #F4F9F4;
+    color: #4a977a;
+}
+
+.menu-item {
+    position: relative;
+}
+.menu-item ul{
+    list-style: none;
+    margin-top: 12px;
+}
+  
+.dropdown-menu {
+    display: none;
+    background-color: #74B49B;
+    position: absolute;
+    border: none;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    top: 80%;
+    left: -70%;
+    width: 220px;
+    z-index: 1;
+}
+.dropdown-menu li{
+    padding: 8px 8px;
+}
+.dropdown-menu img {
+    margin-right: 10px;
+}
+.dropdown-menu a {
+    text-decoration: none;
+    color: #F4F9F4;
+}
+.dropdown-menu li:hover{
+    background-color: #4a977a;
+}
+.menu-item:hover .dropdown-menu {
+    display: block;
+} 
+
+.table {
+    padding: 0px;
+    width: 1322px;
+    height: 62px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.table thead {
+    background-color: #A7D7C5;
+    text-align: center;
+}
+
+.table img {
+    width: 120px;
+    height: 65px;
+    object-fit: cover;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table th,
+.table td {
+  border: 1px solid #5C8D89;
+}
+
+.icon img{
+    width: 30px;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #4a977a; /* Ganti dengan warna latar belakang yang diinginkan */
+    color: #fff; /* Ganti dengan warna teks yang diinginkan */
+    padding: 10px;
+    text-align: center;
+  }
