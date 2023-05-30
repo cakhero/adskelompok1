@@ -1,0 +1,133 @@
+@import url('https://font.googleleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.navbar {
+    background-color: #74B49B;
+    position: relative;
+    z-index: 2;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.btn-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.btn-link:hover {
+    background-color: white;
+    color: #74B49B;
+}
+.btn-primary { /*login*/
+    background-color: #74B49B;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn-primary:hover {
+    background-color: white;
+    color: #74B49B;
+}
+
+.add-item {
+    justify-content: center;
+    align-items: center;
+    background-color: #74B49B;
+}
+.additem {
+    display: flex;
+    text-align: center;
+}
+.additem a {
+    padding-right: 30px;
+    text-decoration: none;
+    color: #F4F9F4;
+}
+
+.additem:hover,
+.additem a:hover{
+    background-color: #F4F9F4;
+    color: #4a977a;
+}
+
+.menu-item {
+    position: relative;
+}
+.menu-item ul{
+    list-style: none;
+    margin-top: 12px;
+}
+  
+.dropdown-menu {
+    display: none;
+    background-color: #74B49B;
+    position: absolute;
+    border: none;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    top: 80%;
+    left: -70%;
+    width: 220px;
+    z-index: 1;
+}
+.dropdown-menu li{
+    padding: 8px 8px;
+}
+.dropdown-menu img {
+    margin-right: 10px;
+}
+.dropdown-menu a {
+    text-decoration: none;
+    color: #F4F9F4;
+}
+.dropdown-menu li:hover{
+    background-color: #4a977a;
+}
+.menu-item:hover .dropdown-menu {
+    display: block;
+} 
+
+.form-group textarea,
+.form-group input {
+    width: 100%;
+}
+
+.map {
+    text-align: center;
+}
+.map-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+  }
+
+#map {
+    width: 1240px;
+    height: 450px;
+}
+
+.form-group .input-group input {
+    width: 100px;
+    height: 40px;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #4a977a; /* Ganti dengan warna latar belakang yang diinginkan */
+    color: #fff; /* Ganti dengan warna teks yang diinginkan */
+    padding: 10px;
+    text-align: center;
+}
