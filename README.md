@@ -57,6 +57,7 @@ Alasan mengapa dipilih MVC sebagai Architecture Pattern yang digunakan adalah ka
 ![class diagram](https://github.com/cakhero/adskelompok1/assets/93716487/0c1c7559-6013-4805-89ea-37e259a83f87)
 
 ## Prototype
+Dapat dilihat pada link berikut <a href="https://www.figma.com/file/gcUKB7RcQx19ERXhswvnHx/focorecs?type=design&node-id=0%3A1&t=VJhKGHbW8O4yl5W5-1" target="_blank">Prototype FOCORECS</a>
 
 ## Link Video Demo
 
