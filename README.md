@@ -48,9 +48,9 @@ Alasan mengapa dipilih MVC sebagai Architecture Pattern yang digunakan adalah ka
 
 ## System Analysis
 ### Use Case Diagram
-![use case](https://github.com/cakhero/adskelompok1/assets/93716487/8a5fbf15-82b1-4b30-8d29-9a8fe3884a6f)
+![Use Case Diagram rev](https://github.com/cakhero/adskelompok1/assets/93716487/dd3999cd-4164-42f8-9f21-ccd88b342f7f)
 ### Activity Diagram
-![activity diagram](https://github.com/cakhero/adskelompok1/assets/93716487/e5b30b4e-009b-4bca-bbc7-ae4264bc8a44)
+![Activity Diagram rev](https://github.com/cakhero/adskelompok1/assets/93716487/20c42589-fa7f-492a-965e-45d187839ae5)
 ### ERD
 
 ### Class Diagram
