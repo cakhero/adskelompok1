@@ -31,6 +31,8 @@ Aplikasi kami memberikan rekomendasi makanan sesuai budget agar pengguna dapat m
 Batasan-batasan yang diterapkan untuk proyek ini adalah:
 
 ## Lingkungan Pengembangan
+CPU : AMD A9 Radeon R5
+RAM : 12 GB
 
 ## Metodologi
 Aplikasi kami menggunakan Model-View-Controller (MVC) untuk architecture pattern dan Factory Method Pattern untuk design pattern.
