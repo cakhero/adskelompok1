@@ -16,14 +16,20 @@ templates = Jinja2Templates(directory="web")
 app.mount("/static", StaticFiles(directory="web/static"), name="static")
     
 @app.get("/")
-def index(request: Request):
+def index(request: Request, db: Session = Depends(get_db)):
     context = {"request": request}
     token = request.cookies.get('token')
     if token == None:
         return templates.TemplateResponse("menu.html", context)
-    if crud.verify_user(token):
-        context['username'] = crud.verify_user(token)
-        return templates.TemplateResponse("landing.html", context)
+    username = crud.verify_user(token)
+    if username:
+        context['username'] = username
+        if crud.get_mahasiswa(db, username):
+            return templates.TemplateResponse("landing.html", context)
+        if crud.get_pemberi_rekomendasi(db, username):
+            return templates.TemplateResponse("landingpr.html", context)
+        return RedirectResponse("/logout", status_code=status.HTTP_302_FOUND)
+
     return templates.TemplateResponse("menu.html", context)
 
 @app.post("/register")
@@ -33,6 +39,8 @@ async def register(request: Request, db: Session = Depends(get_db)):
     username = form.get("username")
     password = form.get("password")
     cpassword = form.get("cpassword")
+    check = form.get("checkbox")
+    print(check)
     if password != cpassword:
         raise HTTPException(status_code=400, detail="Passwords do not match")
         return
@@ -40,8 +48,12 @@ async def register(request: Request, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Username Cannot Empty")
         return
     new_user = CreateUser(username=username, password=password)
-    print(username, password)
-    crud.create_user(db, new_user)
+    
+    if check == None:
+        crud.create_user(db, new_user)
+    else:
+        crud.create_pemberi_rekomendasi(db, new_user)
+        
     token = crud.login_user(db, username, password)
     response = RedirectResponse("/", status_code=status.HTTP_302_FOUND)
     response.set_cookie("token", token["token"], max_age=24 * 60 * 60)

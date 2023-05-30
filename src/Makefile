@@ -14,3 +14,6 @@ start-db:
 
 stop-db:
 	docker stop db-focorecs
+
+enter-db:
+	docker exec -it db-focorecs psql -U postgres

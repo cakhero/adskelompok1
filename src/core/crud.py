@@ -12,14 +12,30 @@ class Crud():
         db.commit()
         db.refresh(user)
     
+    def create_pemberi_rekomendasi(self, db: session, new_user:schemas.CreateUser):
+        hashed_password = auth_handler.get_password_hash(new_user.password)
+        user = models.PemberiRekomendasi(username=new_user.username, password=hashed_password)
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+    
     def get_user(self, db: session, username: str):
         user = db.query(models.User).filter(models.User.username == username).first()
         return user
      
     def get_mahasiswa(self, db:session, username: str) -> models.Mahasiswa:
         user = self.get_user(db, username)
+        if not user:
+            return False
         mahasiswa = db.query(models.Mahasiswa).filter(models.Mahasiswa.user_id == user.id).first()
         return mahasiswa
+    
+    def get_pemberi_rekomendasi(self, db:session, username: str) -> models.Mahasiswa:
+        user = self.get_user(db, username)
+        if not user:
+            return False
+        pemberi_rekomendasi = db.query(models.PemberiRekomendasi).filter(models.PemberiRekomendasi.user_id == user.id).first()
+        return pemberi_rekomendasi
 
     def login_user(self, db: session, username: str, password: str):
         user = self.get_user(db, username)
@@ -45,10 +61,10 @@ class Crud():
     
     def save_report(self, db: session, token: str, report: str):
         user = self.verify_user(token)
-        user = self.get_user(db, user)
-        user.report_bug = report
+        report = models.report(username=user, report=report)
+        db.add(report)
         db.commit()
-        db.refresh(user)
+        db.refresh(report)
         return True
         
     def save_uang(self, db: session, token: str, uang : int, hari: int):
