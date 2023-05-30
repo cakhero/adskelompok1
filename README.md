@@ -62,6 +62,7 @@ Dapat dilihat pada link berikut <a href="https://www.figma.com/file/gcUKB7RcQx19
 ## Link Video Demo
 
 ## Link Aplikasi
+Dapat diakses pada link berikut <a href="https://ipb.link/focorecs" target="_blank">Website FOCORECS</a>
 
 ## Testing
 
