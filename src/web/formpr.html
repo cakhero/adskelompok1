@@ -27,7 +27,7 @@
       <!-- Navbar brand -->
       <a class="navbar-brand me-2" href="https://mdbgo.com/">
         <img
-          src="asset/Ellipse 1.png"
+          src="/static/asset/Ellipse 1.png"
           height="30"
           alt="logo"
           loading="lazy"
@@ -68,12 +68,12 @@
         <div class="menu-item">
         <!--<div class="d-flex align-items-center">-->
           <ul>
-            <li><a href="#"><img src="asset/Vector.png" alt="more"></a>
+            <li><a href="#"><img src="/static/asset/Vector.png" alt="more"></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><img src="asset/Vector.png" alt="">Nama User</a></li>
-                <li id="gantipass"><a href="password.html"><img src="asset/change_pass.png">Ubah kata sandi</a></li>
-                <li id="laporbug"><a href="report.html"><img src="asset/ic_sharp-report-gmailerrorred.png">Laporkan Kendala</a></li>
-                <li><a href="menu.html"><img src="asset/ic_sharp-log-out.png" alt="">Keluar</a></li>
+                <li><a href="#"><img src="/static/asset/Vector.png" alt="">Nama User</a></li>
+                <li id="gantipass"><a href="password.html"><img src="/static/asset/change_pass.png">Ubah kata sandi</a></li>
+                <li id="laporbug"><a href="report.html"><img src="/static/asset/ic_sharp-report-gmailerrorred.png">Laporkan Kendala</a></li>
+                <li><a href="menu.html"><img src="/static/asset/ic_sharp-log-out.png" alt="">Keluar</a></li>
               </ul>
             </li>
           </ul>
@@ -128,13 +128,26 @@
             center: [-6.5564, 106.731],
             zoom: 10 
           }
-        
-          let map = new L.map('map', mapOptions)
+      
+          let map = new L.map('map', mapOptions);
           let layer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
           map.addLayer(layer);
       
-          let marker = new L.Marker([-6.56089, 106.73191]);
-          marker.addTo(map);
+          let marker;
+          let latitude;
+          let longitude;
+      
+          map.on('click', function(e) {
+            if (marker) {
+              map.removeLayer(marker); // Remove previous marker
+            }
+            
+            latitude = e.latlng.lat;
+            longitude = e.latlng.lng;
+      
+            marker = new L.Marker(e.latlng);
+            marker.addTo(map);
+          });
         </script>
       
     </div>
@@ -150,7 +163,7 @@
       
 
     <div class="form-group">
-        <label for="no-telp">Nomor Telpon:</label>
+        <label for="no-telp">Nomor Telepon:</label>
         <input type="text" id="nama-warung" name="nama-warung">
     </div>
 

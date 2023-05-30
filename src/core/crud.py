@@ -81,6 +81,13 @@ class Crud():
         user = self.get_mahasiswa(db, user)
         return user.nominal_dana, user.durasi_hari
         
+    def save_warung(self, db: session, token: str, 
+                    nama_item: str, deskripsi: str, harga_item: int, 
+                    nama_warung: str, lokasi_warung: str, jam_buka_warung: str, 
+                    jam_tutup_warung: str, alamat_warung: str, kontak_warung: str,
+                    foto_warung: str, latitude: str, longitude: str):
+        user = self.verify_user(token)
+        warung = models.Warung()
         
-    
+        
 crud = Crud()

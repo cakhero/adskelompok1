@@ -9,15 +9,19 @@ class ClassMahasiswa(BaseModel):
     durasi_hari: int
     nilai_warung: int
 
-class ClassPemberiRekomendasi(BaseModel):
+class Warung(BaseModel):
+    nama_item: str
+    deskripsi: str
+    harga_item: int
     nama_warung: str
     lokasi_warung: str
     jam_buka_warung: str
-    kontak_warung: int
-    nama_makanan: str
-    harga_makanan: int
-    nama_minuman: str
-    harga_minuman: int
+    jam_tutup_warung: str
+    alamat_warung: str
+    kontak_warung: str
+    foto_warung: str
+    latitude: str
+    longitude: str
     
 class AuthDetails(BaseModel):
     username: str

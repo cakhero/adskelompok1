@@ -144,7 +144,18 @@ async def menu(request: Request):
     context['username'] = crud.verify_user(token)
     return templates.TemplateResponse("detailmenu1.html", context)
 
+@app.get("/sheet")
+async def sheet(request: Request):
+    context = {"request": request}
+    token = request.cookies.get('token')
+    context['username'] = crud.verify_user(token)
+    return templates.TemplateResponse("formpr.html", context)
 
+@app.post("/sheet")
+async def sheet(request: Request, db: Session = Depends(get_db)):
+    context = {"request": request}
+    token = request.cookies.get('token')
+    
 # if __name__ == "__main__":
 #     import uvicorn
 
