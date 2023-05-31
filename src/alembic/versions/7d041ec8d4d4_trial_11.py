@@ -1,8 +1,8 @@
-"""trial 6
+"""trial 11
 
-Revision ID: 28c76c936bec
+Revision ID: 7d041ec8d4d4
 Revises: 
-Create Date: 2023-05-30 08:57:31.778006
+Create Date: 2023-05-31 05:32:31.738007
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '28c76c936bec'
+revision = '7d041ec8d4d4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,17 +33,16 @@ def upgrade() -> None:
     op.create_table('warung',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nama_item', sa.String(), nullable=True),
-    sa.Column('deskripsi', sa.Text(), nullable=True),
+    sa.Column('deskripsi', sa.String(), nullable=True),
     sa.Column('harga_item', sa.Integer(), nullable=True),
     sa.Column('nama_warung', sa.String(), nullable=True),
-    sa.Column('lokasi_warung', sa.String(), nullable=True),
-    sa.Column('jam_buka_warung', sa.Time(), nullable=True),
-    sa.Column('jam_tutup_warung', sa.Time(), nullable=True),
+    sa.Column('jam_buka_warung', sa.String(), nullable=True),
+    sa.Column('jam_tutup_warung', sa.String(), nullable=True),
     sa.Column('alamat_warung', sa.String(), nullable=True),
     sa.Column('kontak_warung', sa.String(), nullable=True),
     sa.Column('foto_warung', sa.String(), nullable=True),
-    sa.Column('latitude', sa.String(), nullable=True),
-    sa.Column('longitude', sa.String(), nullable=True),
+    sa.Column('latitude', sa.Float(), nullable=True),
+    sa.Column('longitude', sa.Float(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('mahasiswa',

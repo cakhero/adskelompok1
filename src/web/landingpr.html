@@ -112,24 +112,27 @@
         <th scope="col">Aksi</th>
       </tr>
     </thead>
+    
     <tbody>
+      {% for i in range(warung|length) %}
       <tr>
-        <td>1</td>
-        <td><img src="/static/asset/Rectangle 25.png" alt="Foto 1"></td>
-        <td>Menu 1</td>
-        <td>Deskripsi Menu 1</td>
-        <td>Rp 10,000</td>
-        <td>Warung A</td>
-        <td>Alamat Warung A</td>
-        <td>08:00</td>
-        <td>18:00</td>
-        <td>08123456789</td>
+        <td>{{i+1}}</td>
+        <td><img src="{{warung[i].foto_warung}}" alt="Foto {{i+1}}"></td>
+        <td>{{warung[i].nama_item}}</td>
+        <td>{{warung[i].deskripsi}}</td>
+        <td>{{warung[i].harga_item}}</td>
+        <td>{{warung[i].nama_warung}}</td>
+        <td>{{warung[i].alamat_warung}}</td>
+        <td>{{warung[i].jam_buka_warung}}</td>
+        <td>{{warung[i].jam_tutup_warung}}</td>
+        <td>{{warung[i].kontak_warung}}</td>
         <td class="icon">
           <a href="#"><img src="/static/asset/ic_round-remove-red-eye.png" alt=""></a>
-          <a href="#"><img src="/static/asset/mdi_pencil.png" alt=""></a>
-          <a href="#"><img src="/static/asset/ic_baseline-delete.png" alt=""></a>
+          <a href="/sheet?id={{warung[i].id}}"><img src="/static/asset/mdi_pencil.png" alt=""></a>
+          <a href="/delete_warung?id={{warung[i].id}}"><img src="/static/asset/ic_baseline-delete.png" alt=""></a>
         </td>
       </tr>
+      {% endfor %}
       <!-- Data lainnya -->
     </tbody>
   </table>

@@ -20,9 +20,13 @@ class Warung(BaseModel):
     alamat_warung: str
     kontak_warung: str
     foto_warung: str
-    latitude: str
-    longitude: str
+    latitude: float
+    longitude: float
     
 class AuthDetails(BaseModel):
     username: str
     password: str
+    
+class Marker(BaseModel):
+    latitude: float
+    longitude: float

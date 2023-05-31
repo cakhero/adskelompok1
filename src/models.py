@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String, Text, ForeignKey, Time
+from sqlalchemy import Integer, String, Text, ForeignKey, Time, Float
 from sqlalchemy.sql.schema import Column
 from database import Base
 
@@ -29,15 +29,14 @@ class Warung(Base):
     __tablename__ = 'warung'
     id = Column(Integer, primary_key=True)
     nama_item = Column(String)
-    deskripsi = Column(Text)
+    deskripsi = Column(String)
     harga_item = Column(Integer)
     nama_warung = Column(String)
-    lokasi_warung = Column(String)
-    jam_buka_warung = Column(Time)
-    jam_tutup_warung = Column(Time)
+    jam_buka_warung = Column(String)
+    jam_tutup_warung = Column(String)
     alamat_warung = Column(String)
     kontak_warung = Column(String)
     foto_warung = Column(String)
-    latitude = Column(String)
-    longitude = Column(String)
+    latitude = Column(Float)
+    longitude = Column(Float)
     

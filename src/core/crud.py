@@ -83,11 +83,53 @@ class Crud():
         
     def save_warung(self, db: session, token: str, 
                     nama_item: str, deskripsi: str, harga_item: int, 
-                    nama_warung: str, lokasi_warung: str, jam_buka_warung: str, 
+                    nama_warung: str, jam_buka_warung: str, 
                     jam_tutup_warung: str, alamat_warung: str, kontak_warung: str,
                     foto_warung: str, latitude: str, longitude: str):
         user = self.verify_user(token)
-        warung = models.Warung()
-        
-        
+        warung = models.Warung(nama_item=nama_item, deskripsi=deskripsi, harga_item=harga_item,
+                               nama_warung=nama_warung,
+                               jam_buka_warung=jam_buka_warung, jam_tutup_warung=jam_tutup_warung,
+                               alamat_warung=alamat_warung, kontak_warung=kontak_warung, 
+                               foto_warung=foto_warung, latitude=latitude, longitude=longitude)
+        db.add(warung)
+        db.commit()
+        db.refresh(warung)
+        return True
+    
+    def read_warung(self, db: session):
+        warung = db.query(models.Warung).all()
+        return warung
+    
+    def get_warung(self, db: session, warung_id: int):
+        warung = db.query(models.Warung).filter(models.Warung.id == warung_id).first()
+        return warung
+    
+    def edit_warung(self, db: session, warung_id: int, nama_item: str, 
+                    deskripsi: str, harga_item: int, 
+                    nama_warung: str, jam_buka_warung: str, 
+                    jam_tutup_warung: str, alamat_warung: str, kontak_warung: str,
+                    foto_warung: str, latitude: str, longitude: str):
+        warung = self.get_warung(db, warung_id)
+        warung.nama_item = nama_item
+        warung.deskripsi = deskripsi
+        warung.harga_item = harga_item
+        warung.nama_warung = nama_warung
+        warung.jam_buka_warung = jam_buka_warung
+        warung.jam_tutup_warung = jam_tutup_warung
+        warung.alamat_warung = alamat_warung
+        warung.kontak_warung = kontak_warung
+        warung.foto_warung = foto_warung
+        warung.latitude = latitude
+        warung.longitude = longitude
+        db.commit()
+        db.refresh(warung)
+        return True
+             
+    def delete_warung(self, db: session, warung_id: int):
+        warung = self.get_warung(db, warung_id)
+        db.delete(warung)
+        db.commit()
+        return True
+    
 crud = Crud()

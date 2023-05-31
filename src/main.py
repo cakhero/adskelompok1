@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Depends, Request, HTTPException, Response, status
+from fastapi import FastAPI, Depends, Request, HTTPException, Response, status, UploadFile
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
-from schemas import CreateUser
+from schemas import CreateUser, Marker
 from core.crud import crud
 from sqlalchemy.orm import Session
 from database import get_db
@@ -27,6 +27,8 @@ def index(request: Request, db: Session = Depends(get_db)):
         if crud.get_mahasiswa(db, username):
             return templates.TemplateResponse("landing.html", context)
         if crud.get_pemberi_rekomendasi(db, username):
+            warung = crud.read_warung(db)
+            context['warung'] = warung
             return templates.TemplateResponse("landingpr.html", context)
         return RedirectResponse("/logout", status_code=status.HTTP_302_FOUND)
 
@@ -145,17 +147,92 @@ async def menu(request: Request):
     return templates.TemplateResponse("detailmenu1.html", context)
 
 @app.get("/sheet")
-async def sheet(request: Request):
+async def sheet(request: Request, id: int | None = None, db: Session = Depends(get_db)):
     context = {"request": request}
     token = request.cookies.get('token')
     context['username'] = crud.verify_user(token)
+    if id:
+        warung = crud.get_warung(db, id)
+        context["warung"] = warung
     return templates.TemplateResponse("formpr.html", context)
 
 @app.post("/sheet")
 async def sheet(request: Request, db: Session = Depends(get_db)):
     context = {"request": request}
     token = request.cookies.get('token')
+    form = await request.form()
+    nama_item = form.get("nama-makanan")
+    deskripsi = form.get("deksripsi")
+    harga_item = form.get("harga")
+    nama_warung = form.get("nama-warung")
+    alamat_warung = form.get("alamat-warung")
+    latitude = form.get("latitude")
+    longitude = form.get("longitude")
+    jam_buka = form.get("jam-buka")
+    jam_tutup = form.get("jam-tutup")
+    nomor_telepon = form.get("nomor-telepon")
     
+    picture = form.get("picture")
+    picture_data = picture.file.read()
+    target_directory = "/root/adskelompok1/src/web/static/asset/"
+    file_location = target_directory+picture.filename
+    with open(file_location, "wb+") as file_object:
+        file_object.write(picture_data)
+
+    foto = "/static/asset/"+picture.filename
+    
+    check = crud.save_warung(db, token, nama_item, deskripsi, harga_item, nama_warung,
+                              jam_buka, jam_tutup, alamat_warung, nomor_telepon,
+                              foto, latitude, longitude)
+
+    if check:
+        context['username'] = crud.verify_user(token)
+        return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
+
+@app.post("/edit_sheet")
+async def edit_sheet(request: Request, db: Session = Depends(get_db)):
+    context = {"request": request}
+    token = request.cookies.get('token')
+    form = await request.form()
+    id = form.get("warung_id")
+    nama_item = form.get("nama-makanan")
+    deskripsi = form.get("deskripsi")
+    harga_item = form.get("harga")
+    nama_warung = form.get("nama-warung")
+    alamat_warung = form.get("alamat-warung")
+    latitude = form.get("latitude")
+    longitude = form.get("longitude")
+    jam_buka = form.get("jam-buka")
+    jam_tutup = form.get("jam-tutup")
+    nomor_telepon = form.get("nomor-telepon")
+    print(id, nama_item, deskripsi, nomor_telepon)
+    
+    picture = form.get("picture")
+    picture_data = picture.file.read()
+    target_directory = "/root/adskelompok1/src/web/static/asset/"
+    file_location = target_directory+picture.filename
+    with open(file_location, "wb+") as file_object:
+        file_object.write(picture_data)
+
+    foto = "/static/asset/"+picture.filename
+    check = crud.edit_warung(db, id, nama_item, deskripsi, harga_item, nama_warung,
+                              jam_buka, jam_tutup, alamat_warung, nomor_telepon,
+                              foto, latitude, longitude)
+    
+    if check:
+        context['username'] = crud.verify_user(token)
+        return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
+    
+@app.get("/delete_warung")
+async def delete_warung(request: Request, id: int, db: Session = Depends(get_db)):
+    context = {"request": request}
+    check = crud.delete_warung(db, id)
+    token = request.cookies.get('token')
+    if check:
+        context['username'] = crud.verify_user(token)
+        return RedirectResponse("/", status_code=status.HTTP_302_FOUND)
+    
+
 # if __name__ == "__main__":
 #     import uvicorn
 

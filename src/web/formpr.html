@@ -57,13 +57,13 @@
           </li>
         </ul>
         <!-- Left links -->
-        <button class="add-item">
+        <!-- <button class="add-item">
           <div class="additem">
             <a href="#">
               Simpan
             </a>
           </div>
-        </button>
+        </button> -->
   
         <div class="menu-item">
         <!--<div class="d-flex align-items-center">-->
@@ -71,9 +71,9 @@
             <li><a href="#"><img src="/static/asset/Vector.png" alt="more"></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><img src="/static/asset/Vector.png" alt="">Nama User</a></li>
-                <li id="gantipass"><a href="password.html"><img src="/static/asset/change_pass.png">Ubah kata sandi</a></li>
-                <li id="laporbug"><a href="report.html"><img src="/static/asset/ic_sharp-report-gmailerrorred.png">Laporkan Kendala</a></li>
-                <li><a href="menu.html"><img src="/static/asset/ic_sharp-log-out.png" alt="">Keluar</a></li>
+                <li id="gantipass"><a href="/reset"><img src="/static/asset/change_pass.png">Ubah kata sandi</a></li>
+                <li id="laporbug"><a href="/report"><img src="/static/asset/ic_sharp-report-gmailerrorred.png">Laporkan Kendala</a></li>
+                <li><a href="/"><img src="/static/asset/ic_sharp-log-out.png" alt="">Keluar</a></li>
               </ul>
             </li>
           </ul>
@@ -93,33 +93,37 @@
       </div>
     </div>
   </nav>
-
+  <form class="form" action={%if warung%}"/edit_sheet"{%else%}"/sheet"{%endif%} method="post" enctype="multipart/form-data">
   <form class="container">
     <div class="form-group">
       <label class="tittle d-block" for="nama-makanan">Nama Makanan:</label>
-      <input type="text" id="nama-makanan" name="nama-makanan">
+      <input type="text" id="nama-makanan" name="nama-makanan" {%if warung %} value="{{warung.nama_item}}" {%endif%}>
     </div>
   
     <div class="form-group">
       <label class="tittle d-block" for="deskripsi">Deskripsi:</label>
-      <textarea id="deskripsi" name="deskripsi" style="resize: none;"></textarea>
+      <textarea id="deskripsi" name="deskripsi" style="resize: none;" >{%if warung %} {{warung.deskripsi}} {%endif%}</textarea>
     </div>
-  
+    
     <div class="form-group">
       <label class="tittle d-block" for="harga">Harga:</label>
-      <input type="text" id="harga" name="harga">
+      <input type="text" id="harga" name="harga" {%if warung %} value="{{warung.harga_item}}" {%endif%}>
     </div>
   
     <div class="form-group">
       <label for="nama-warung">Nama Warung:</label>
-      <input type="text" id="nama-warung" name="nama-warung">
+      <input type="text" id="nama-warung" name="nama-warung" {%if warung %} value="{{warung.nama_warung}}" {%endif%}>
     </div>
   
     <div class="form-group">
       <label for="alamat-warung">Alamat Warung:</label>
-      <textarea id="alamat-warung" name="alamat-warung" style="resize: none;"></textarea>
+      <textarea id="alamat-warung" name="alamat-warung" style="resize: none;" >{%if warung %} {{warung.alamat_warung}} {%endif%}</textarea>
     </div>
-
+    {%if warung %}
+    <input type="hidden" id="warung_id" name="warung_id" value="{{warung.id}}">
+    {%endif%}
+    <input type="hidden" id="latitude" name="latitude" value="">
+    <input type="hidden" id="longitude" name="longitude" value="">
     <div class="map-container">
         <div id="map"></div>
       
@@ -147,6 +151,13 @@
       
             marker = new L.Marker(e.latlng);
             marker.addTo(map);
+            console.log(latitude)
+            console.log(longitude)
+            form_long = document.getElementById("longitude")
+            form_lat = document.getElementById("latitude")
+            form_long.value = longitude
+            form_lat.value = latitude
+            
           });
         </script>
       
@@ -155,26 +166,37 @@
     <div class="form-group">
         <label for="jam-buka">Jam Buka:</label>
         <div class="input-group">
-          <input type="text" id="jam-buka" name="jam-buka" placeholder="HH:MM">
+          <input type="text" id="jam-buka" name="jam-buka" placeholder="HH:MM" {%if warung %} value="{{warung.jam_buka_warung}}" {%endif%}>
           <span class="input-group-text">-</span>
-          <input type="text" id="jam-tutup" name="jam-tutup" placeholder="HH:MM">
+          <input type="text" id="jam-tutup" name="jam-tutup" placeholder="HH:MM" {%if warung %} value="{{warung.jam_tutup_warung}}" {%endif%}>
         </div>
     </div>
       
 
     <div class="form-group">
         <label for="no-telp">Nomor Telepon:</label>
-        <input type="text" id="nama-warung" name="nama-warung">
+        <input type="text" id="nama-warung" name="nomor-telepon" {%if warung %} value="{{warung.kontak_warung}}" {%endif%}>
     </div>
 
     <div class="form-group">
-        <label for="foto">Foto:</label>
-        <input type="file" id="foto" name="foto">
+        <label for="picture">Foto:</label>
+        <input type="file" id="foto" name="picture">
     </div>
 
-  
+    <style>
+      .change-pass {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <div class="change-pass">
+      <button type="submit" class="btn btn-primary">Simpan</button>
+      <a class="btn btn-secondary" href="/">Kembali</a>
+  </div>
+
   </form>
-  
+</form>
 
   <footer class="footer text-light py-3">
     <div class="container">
