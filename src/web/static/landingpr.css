@@ -39,24 +39,30 @@
 }
 
 .add-item {
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #74B49B;
 }
 .additem {
-    display: flex;
-    text-align: center;
-}
-.additem a {
-    padding-right: 30px;
-    text-decoration: none;
+    width: 230px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #74B49B;
     color: #F4F9F4;
+    border: none;
+    display: flex;
+    border-radius: 10px;
 }
 
-.additem:hover,
-.additem a:hover{
-    background-color: #F4F9F4;
-    color: #4a977a;
+.add-item .additem img {
+    padding-right: 10px;
+}
+
+.additem:hover {
+    background-color: #5C8D89;
+    color: #F4F9F4;
 }
 
 .menu-item {
